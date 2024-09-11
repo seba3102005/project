@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content">
+ 
+{% for x in sold %}
+
+<div class="book">
+    <img src="{{x.image.url}}" alt="Book Cover">
+    <p>{{x.author}}</p>
+    <h4>{{x.name}}</h4>
+    <h5>{{x.category}}</h5>
+    
+        
+     <h2>{{x.status}}</h2>
+        
+        
+
+    
+    
+
+    
+</div>
+
+
+{% endfor %}
+</div>
+
+
+
+{% endblock content %}

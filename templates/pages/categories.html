@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+{% block content %}    
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            
+           
+            <h1>Book Search</h1>
+            
+
+            
+            
+            <!-- Books Header Section -->
+            <div class="books-header">
+                    
+                    <form method="GET" action="{% url 'categories' %}" >
+                    <input type="search" placeholder="Search for books..." name="search"  >
+                    </form>
+                    
+            </div>
+            <div class="book">
+                {% for x in total %}
+                    <img src="{{x.image.url}}" alt="Book Cover">
+                    <p>{{x.author}}</p>
+                    <h4>{{x.name}}</h4>
+                    <h5>{{x.category}}</h5>
+                    {%if x.status == "rent" %}     
+                        {% if x.rent_price %}
+                        <h2>{{x.status}}</h2>
+                        <h3>{{x.rent_price}}</h3>
+                        {% endif %}
+                
+                    {% endif %}
+                    {%if x.status == "available"%}     
+                        {% if x.price %}
+                        <h2>{{x.status}}</h2>
+                        <h3>{{x.price}}</h3>
+                        {% endif %}
+                
+                    {% endif %}
+                    {%if x.status == "sold" %}     
+                        
+                        <h2>{{x.status}}</h2>
+                        
+                
+                    {% endif %}
+                
+                    
+             
+                
+                
+                {% endfor %}
+            </div>
+        </div>
+                
+        
+   
+    {% endblock content %}
+
+    

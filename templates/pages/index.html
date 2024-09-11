@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- Main Content Area -->
+<div class="main-content">
+            
+    <!-- Website Summary Section -->
+    <div class="summary">
+        <h2>Welcome to Book Haven</h2>
+        <p>Book Haven is your gateway to the most engaging, inspiring, and transformative literature. Whether you're searching for bestsellers, timeless classics, or hidden gems, we have something for every book lover. Dive into a world of stories, knowledge, and discovery!</p>
+    </div>
+    <h1 align="center" >Our available Books</h1>
+<h3 align="center">{{total}} books</h3><br>
+    <!-- Books Showcase Section -->
+     {% load static %}
+    <div class="books">
+        {% for x in books %}
+                <div class="book">
+                    <img src="{{x.image.url}}" alt="Book Cover">
+                    <p>{{x.author}}</p>
+                    <h4>{{x.name}}</h4>
+                    <h5>{{x.category}}</h5>
+                    
+                </div>
+                {% endfor %}
+    </div>
+
+</div>
+</div>
+
+
+
+
+{% endblock content %}

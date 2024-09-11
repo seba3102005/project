@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content">
+ 
+{% for x in nonfiction %}
+
+<div class="book">
+    <img src="{{x.image.url}}" alt="Book Cover">
+    <p>{{x.author}}</p>
+    <h4>{{x.name}}</h4>
+    <h5>{{x.category}}</h5>
+    {%if x.status == "rent" %}     
+        {% if x.rent_price %}
+        <h2>{{x.status}}</h2>
+        <h3>{{x.rent_price}}</h3>
+        {% endif %}
+
+    {% endif %}
+    {%if x.status == "available"%}     
+        {% if x.price %}
+        <h2>{{x.status}}</h2>
+        <h3>{{x.price}}</h3>
+        {% endif %}
+
+    {% endif %}
+    {%if x.status == "sold" %}     
+        
+        <h2>{{x.status}}</h2>
+        
+
+    {% endif %}
+
+    
+</div>
+
+
+{% endfor %}
+</div>
+
+
+
+{% endblock content %}

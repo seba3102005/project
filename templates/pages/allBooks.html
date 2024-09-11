@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    
+
+    
+        <!-- Main Content Area -->
+        <div class="main-content">
+            
+            
+
+            <!-- Books Showcase Section -->
+             {% load static %}
+            <div class="books">
+                {% for x in books %}
+                <div class="book">
+                    <img src="{{x.image.url}}" alt="Book Cover">
+                    <p>{{x.author}}</p>
+                    <h4>{{x.name}}</h4>
+                    <h5>{{x.category}}</h5>
+                    {%if x.status == "rent" %}     
+                        {% if x.rent_price %}
+                        <h2>{{x.status}}</h2>
+                        <h3>{{x.rent_price}}</h3>
+                        {% endif %}
+
+                    {% endif %}
+                    {%if x.status == "available"%}     
+                        {% if x.price %}
+                        <h2>{{x.status}}</h2>
+                        <h3>{{x.price}}</h3>
+                        {% endif %}
+
+                    {% endif %}
+                    {%if x.status == "sold" %}     
+                        
+                        <h2>{{x.status}}</h2>
+                        
+
+                    {% endif %}
+
+                    
+                </div>
+                {% endfor %}
+                
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock %}
+
+
